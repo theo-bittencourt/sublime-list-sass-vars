@@ -1,6 +1,9 @@
 List SASS variables
 ======================
 
+## Please note
+This fork does work, but only for `.scss` files and you **need** to have all files containing variables opened because it cannot search imported files yet. If you think you can help, please help try to improve this
+
 Simple Sublime 2/3 plugin for listing SASS variables used in a file.
 
 The default hotkey is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>
@@ -13,7 +16,7 @@ external files. This can be disabled in settings.
 Note that the plugin automatically ignores anything which looks like a vendor prefixed statement (e.g.
 `@-webkit-keyframes`) and reserved words (e.g. `@media`, `@import` etc.)
 
-![Screenshot](http://i41.tinypic.com/eajivq.png)
+![Screenshot](http://cl.ly/PIca)
 
 Please note that the plugin currently does not understand variable scope and therefore will display all
 the occurances of a variable.
