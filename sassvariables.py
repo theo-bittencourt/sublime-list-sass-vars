@@ -8,9 +8,7 @@ class ListSassVariables(sublime_plugin.TextCommand):
         handle_imports = settings.get("readImported")
         read_all_views = settings.get("readAllViews")
 
-        # regex = "(@[^\s\\]]*): *(.*);"
-        # regex = "(\\$)*(.*): *(.*);"
-        regex = "(\\$[a-zA-Z\\-_0-9]+)\\s*:"
+        regex = "(\\$[a-zA-Z\\-_0-9]+)\\s*: *(.*);"
         self.edit = edit
         fn = self.view.file_name().encode("utf_8")
         if not fn.endswith(b'.scss'):
@@ -53,10 +51,10 @@ class ListSassVariables(sublime_plugin.TextCommand):
                 viewfn = view.file_name().encode("utf_8")
                 if viewfn.endswith(b'.scss') or viewfn.endswith(b'.sassimport'):
                     viewvars = []
-                    view.find_all(regex, 0, "$1", viewvars)
+                    view.find_all(regex, 0, "$1|$2", viewvars)
                     vars_from_views += viewvars
         else:
-            self.view.find_all(regex, 0, "$1", self.variables)
+            self.view.find_all(regex, 0, "$1|$2", self.variables)
 
         self.variables += vars_from_views
         self.variables = list(set(self.variables))
