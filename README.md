@@ -7,7 +7,7 @@ The default hotkey is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (or <kbd>Ctrl<
 +<kbd>L</kbd> on Linux to avoid conflicts with the lock screen hotkey).
 
 It displays a list of SASS variables used in your current file allowing you to insert a selected one
-directly into your code. It also supports `@import`ed SASS files so you can use variables defined in
+directly into your code. It also supports `@imported SASS files so you can use variables defined in
 external files. This can be disabled in settings.
 
 Note that the plugin automatically ignores anything which looks like a vendor prefixed statement (e.g.
