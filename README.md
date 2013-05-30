@@ -1,6 +1,17 @@
 List SASS variables
 ======================
 
+## Please note
+This fork does work, but only for `.scss` files and you will **need** to have all files containing variables opened because it cannot search imported files yet.
+
+If you think you can help, please help try to improve this.
+
+### Improvements needed:
+1. Support for imported files
+2. Support for `.sass` files
+
+___
+
 Simple Sublime 2/3 plugin for listing SASS variables used in a file.
 
 The default hotkey is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>
@@ -13,7 +24,7 @@ external files. This can be disabled in settings.
 Note that the plugin automatically ignores anything which looks like a vendor prefixed statement (e.g.
 `@-webkit-keyframes`) and reserved words (e.g. `@media`, `@import` etc.)
 
-![Screenshot](http://i41.tinypic.com/eajivq.png)
+![Screenshot](http://cl.ly/PIlm/Screen%20Shot%202013-05-30%20at%2010.45.42.png)
 
 Please note that the plugin currently does not understand variable scope and therefore will display all
 the occurances of a variable.
@@ -28,6 +39,6 @@ Configuration
 The settings file has currently two options:
 
  - `readImported` (default: `true`) - decides whether the plugin should attempt to read imported files
- - `readAllViews` (default: `false`) - decides whether the plugin should attempt to read all opened SASS files
+ - `readAllViews` (default: `true`) - decides whether the plugin should attempt to read all opened SASS files
 
 Currently if the plugin checks all opened SASS files, it will only check for imported files in the currently selected file.
