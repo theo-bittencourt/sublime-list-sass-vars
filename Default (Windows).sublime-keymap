@@ -1,5 +1,5 @@
 [
   {
-    "keys": ["ctrl+alt+l"], "command": "list_less_variables"
+    "keys": ["ctrl+alt+l"], "command": "list_sass_variables"
   }
 ]

@@ -1,6 +1,6 @@
 [
 	{
-	    "caption": "List LESS variables",
-	    "command": "list_less_variables"
+	    "caption": "List SASS variables",
+	    "command": "list_sass_variables"
 	}
 ]

@@ -12,14 +12,14 @@
 				"children":
 				[
 					{
-						"caption": "List LESS variables",
+						"caption": "List SASS variables",
 						"children":
 						[
 							{ "caption": "-" },
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List LESS Variables/lessvariables.sublime-settings",
+									"file": "${packages}/List SASS Variables/sassvariables.sublime-settings",
 									"platform": "OSX"
 								},
 								"caption": "Settings – Default"
@@ -27,7 +27,7 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List LESS Variables/lessvariables.sublime-settings",
+									"file": "${packages}/List SASS Variables/sassvariables.sublime-settings",
 									"platform": "Linux"
 								},
 								"caption": "Settings – Default"
@@ -35,21 +35,21 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List LESS Variables/lessvariables.sublime-settings",
+									"file": "${packages}/List SASS Variables/sassvariables.sublime-settings",
 									"platform": "Windows"
 								},
 								"caption": "Settings – Default"
 							},
 							{
 								"command": "open_file",
-								"args": {"file": "${packages}/User/lessvariables.sublime-settings"},
+								"args": {"file": "${packages}/User/sassvariables.sublime-settings"},
 								"caption": "Settings – User"
 							},
 							{ "caption": "-" },
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List LESS Variables/Default (OSX).sublime-keymap",
+									"file": "${packages}/List SASS Variables/Default (OSX).sublime-keymap",
 									"platform": "OSX"
 								},
 								"caption": "Key Bindings – Default"
@@ -57,7 +57,7 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List LESS Variables/Default (Linux).sublime-keymap",
+									"file": "${packages}/List SASS Variables/Default (Linux).sublime-keymap",
 									"platform": "Linux"
 								},
 								"caption": "Key Bindings – Default"
@@ -65,7 +65,7 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List LESS Variables/Default (Windows).sublime-keymap",
+									"file": "${packages}/List SASS Variables/Default (Windows).sublime-keymap",
 									"platform": "Windows"
 								},
 								"caption": "Key Bindings – Default"

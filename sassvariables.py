@@ -1,18 +1,21 @@
 import sublime, sublime_plugin, os, re
 
-class ListLessVariables(sublime_plugin.TextCommand):
+
+class ListSassVariables(sublime_plugin.TextCommand):
     def run(self, edit):
-        settings = sublime.load_settings('lessvariables.sublime-settings')
+        settings = sublime.load_settings('sassvariables.sublime-settings')
 
         handle_imports = settings.get("readImported")
         read_all_views = settings.get("readAllViews")
 
-        regex = "(@[^\s\\]]*): *(.*);"
+        # regex = "(@[^\s\\]]*): *(.*);"
+        # regex = "(\\$)*(.*): *(.*);"
+        regex = "(\\$)*(.*):"
         self.edit = edit
         fn = self.view.file_name().encode("utf_8")
-        if not fn.endswith(b'.less'):
+        if not fn.endswith(b'.scss'):
             return
-            
+
         # Handle imports
         imports = []
         imported_vars = []
@@ -26,8 +29,8 @@ class ListLessVariables(sublime_plugin.TextCommand):
                 try:
                     filename = val
 
-                    if re.search(".less(import)?", filename) == None:
-                        filename += ".less"
+                    if re.search(".scss(import)?", filename) == None:
+                        filename += ".scss"
 
                     f = open(os.path.normpath(file_dir.decode("utf-8") + filename), 'r')
                     contents = f.read()
@@ -48,13 +51,13 @@ class ListLessVariables(sublime_plugin.TextCommand):
         if read_all_views:
             for view in self.view.window().views():
                 viewfn = view.file_name().encode("utf_8")
-                if viewfn.endswith(b'.less') or viewfn.endswith(b'.lessimport'):
+                if viewfn.endswith(b'.scss') or viewfn.endswith(b'.sassimport'):
                     viewvars = []
-                    view.find_all(regex, 0, "$1|$2", viewvars)
+                    view.find_all(regex, 0, "\$$2", viewvars)
                     vars_from_views += viewvars
         else:
-            self.view.find_all(regex, 0, "$1|$2", self.variables)
-            
+            self.view.find_all(regex, 0, "\$$2", self.variables)
+
         self.variables += vars_from_views
         self.variables = list(set(self.variables))
         for i, val in enumerate(self.variables):
@@ -67,6 +70,7 @@ class ListLessVariables(sublime_plugin.TextCommand):
         if choice == -1:
             return
         self.view.run_command('insert_text', {'string': self.variables[choice][0]})
+
 
 class InsertText(sublime_plugin.TextCommand):
     def run(self, edit, string=''):
