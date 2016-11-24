@@ -1,6 +1,4 @@
 [
-  {
-    "keys": ["ctrl+alt+k"], "command": "list_sass_colors_variables",
-    "keys": ["ctrl+alt+l"], "command": "list_sass_fonts_variables"
-  }
+  {"keys": ["ctrl+alt+l"], "command": "list_sass_fonts_variables"},
+  {"keys": ["ctrl+alt+k"], "command": "list_sass_colors_variables"}
 ]
