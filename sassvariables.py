@@ -23,7 +23,7 @@ class ListSassVariables:
         if (os.path.isfile(filepath)):
             file = open(filepath, 'r')
             variables = re.findall(ListSassVariables.REGEXP, file.read())
-            variables = [list(item) for item in variables]
+            self.variables = [list(item) for item in variables]
             sublime.active_window().show_quick_panel(self.variables, self.insert_variable, sublime.MONOSPACE_FONT)
             file.close()
         else:
@@ -32,7 +32,7 @@ class ListSassVariables:
     def insert_variable(self, choice):
         if choice == -1:
             return
-        self.view.run_command('insert_text', {'string': self.variables[choice][0]})
+        sublime.active_window().active_view().run_command('insert_text', {'string': self.variables[choice][0]})
 
 class InsertText(sublime_plugin.TextCommand):
     def run(self, edit, string=''):
