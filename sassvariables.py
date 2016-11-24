@@ -1,74 +1,38 @@
 import sublime, sublime_plugin, os, re
 
-
-class ListSassVariables(sublime_plugin.TextCommand):
+class ListSassFontsVariables(sublime_plugin.TextCommand):
     def run(self, edit):
+        self.edit = edit
+        ListSassVariables().list_variables_for('fonts')
+
+class ListSassColorsVariables(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.edit = edit
+        ListSassVariables().list_variables_for('colors')
+
+class ListSassVariables:
+    REGEXP = "(\\$[a-zA-Z\\-_0-9]+)\\s*: *(.*)"
+
+    def list_variables_for(self, fonts_or_colors):
         settings = sublime.load_settings('sassvariables.sublime-settings')
 
-        handle_imports = settings.get("readImported")
-        read_all_views = settings.get("readAllViews")
+        filepath = os.path.join(
+            sublime.active_window().folders()[0],
+            settings.get("%sFilepath" % fonts_or_colors))
 
-        regex = "(\\$[a-zA-Z\\-_0-9]+)\\s*: *(.*);"
-        self.edit = edit
-        fn = self.view.file_name().encode("utf_8")
-        if not fn.endswith(b'.scss'):
-            return
-
-        # Handle imports
-        imports = []
-        imported_vars = []
-
-        if handle_imports:
-            self.view.find_all("@import \"(.*)\";", 0, "/$2", imports)
-
-            file_dir = os.path.dirname(fn)
-
-            for i, val in enumerate(imports):
-                try:
-                    filename = val
-
-                    if re.search(".scss(import)?", filename) == None:
-                        filename += ".scss"
-
-                    f = open(os.path.normpath(file_dir.decode("utf-8") + filename), 'r')
-                    contents = f.read()
-                    f.close()
-
-                    m = re.findall(regex, contents)
-                    imported_vars = imported_vars + m
-                except:
-                    print('Could not load file ' + val)
-
-            # Convert a list of tuples to a list of lists
-            imported_vars = [list(item) for item in imported_vars]
-
-        self.variables = []
-
-        vars_from_views = []
-
-        if read_all_views:
-            for view in self.view.window().views():
-                viewfn = view.file_name().encode("utf_8")
-                if viewfn.endswith(b'.scss') or viewfn.endswith(b'.sassimport'):
-                    viewvars = []
-                    view.find_all(regex, 0, "$1|$2", viewvars)
-                    vars_from_views += viewvars
+        if (os.path.isfile(filepath)):
+            file = open(filepath, 'r')
+            variables = re.findall(ListSassVariables.REGEXP, file.read())
+            variables = [list(item) for item in variables]
+            sublime.active_window().show_quick_panel(self.variables, self.insert_variable, sublime.MONOSPACE_FONT)
+            file.close()
         else:
-            self.view.find_all(regex, 0, "$1|$2", self.variables)
-
-        self.variables += vars_from_views
-        self.variables = list(set(self.variables))
-        for i, val in enumerate(self.variables):
-            self.variables[i] = val.split("|")
-        self.variables = imported_vars + self.variables
-        self.variables.sort()
-        self.view.window().show_quick_panel(self.variables, self.insert_variable, sublime.MONOSPACE_FONT)
+            sublime.error_message("File for %s not exists: %s" % (fonts_or_colors, filepath))
 
     def insert_variable(self, choice):
         if choice == -1:
             return
         self.view.run_command('insert_text', {'string': self.variables[choice][0]})
-
 
 class InsertText(sublime_plugin.TextCommand):
     def run(self, edit, string=''):

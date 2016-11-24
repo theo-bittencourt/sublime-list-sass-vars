@@ -2,6 +2,6 @@
  * List SASS variables default settings
  */
  {
-  "readImported": true,
-  "readAllViews": true
+  "fontsFilepath": "app/assets/stylesheets/_shared/_fonts.scss",
+  "colorsFilepath": "app/assets/stylesheets/_shared/_colors.sass"
  }

@@ -12,14 +12,14 @@
 				"children":
 				[
 					{
-						"caption": "List SASS variables",
+						"caption": "List SASS fonts and color variables",
 						"children":
 						[
 							{ "caption": "-" },
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List SASS Variables/sassvariables.sublime-settings",
+									"file": "${packages}/sublime-list-sass-vars/sassvariables.sublime-settings",
 									"platform": "OSX"
 								},
 								"caption": "Settings – Default"
@@ -27,7 +27,7 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List SASS Variables/sassvariables.sublime-settings",
+									"file": "${packages}/sublime-list-sass-vars/sassvariables.sublime-settings",
 									"platform": "Linux"
 								},
 								"caption": "Settings – Default"
@@ -35,7 +35,7 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List SASS Variables/sassvariables.sublime-settings",
+									"file": "${packages}/sublime-list-sass-vars/sassvariables.sublime-settings",
 									"platform": "Windows"
 								},
 								"caption": "Settings – Default"
@@ -49,7 +49,7 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List SASS Variables/Default (OSX).sublime-keymap",
+									"file": "${packages}/sublime-list-sass-vars/Default (OSX).sublime-keymap",
 									"platform": "OSX"
 								},
 								"caption": "Key Bindings – Default"
@@ -57,7 +57,7 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List SASS Variables/Default (Linux).sublime-keymap",
+									"file": "${packages}/sublime-list-sass-vars/Default (Linux).sublime-keymap",
 									"platform": "Linux"
 								},
 								"caption": "Key Bindings – Default"
@@ -65,7 +65,7 @@
 							{
 								"command": "open_file",
 								"args": {
-									"file": "${packages}/List SASS Variables/Default (Windows).sublime-keymap",
+									"file": "${packages}/sublime-list-sass-vars/Default (Windows).sublime-keymap",
 									"platform": "Windows"
 								},
 								"caption": "Key Bindings – Default"

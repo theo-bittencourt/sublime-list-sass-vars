@@ -1,6 +1,10 @@
 [
+  {
+      "caption": "List SASS colors variables",
+      "command": "list_sass_colors_variables"
+  },
 	{
-	    "caption": "List SASS variables",
-	    "command": "list_sass_variables"
+	    "caption": "List SASS fonts variables",
+	    "command": "list_sass_fonts_variables"
 	}
 ]

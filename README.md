@@ -18,5 +18,5 @@ Configuration
 -------------
 The settings file has currently two options:
 
- - `fontsFilepath` - define where plugin will get the fonts variables
- - `colorsFilepath` - define where plugin will get the colors variables
+ - `fontsFilepath` - define where plugin will get the fonts variables (default: `app/assets/stylesheets/_shared/_fonts.scss`)
+ - `colorsFilepath` - define where plugin will get the colors variables (default: `app/assets/stylesheets/_shared/_colors.sass`)
